@@ -119,7 +119,6 @@ class GameScene extends Phaser.Scene {
           y: i,
           revealed: false,
         });
-
         const x = j * (1920 / 50);
         const y = i * (1080 / 40);
         // 1920 / 50 = 38.2
