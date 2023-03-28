@@ -88,7 +88,8 @@ class GameScene extends Phaser.Scene {
     //   this.fillSquares(50, rows, items);
     // }, 10)
 
-    console.log('Reachme 01')
+    console.log('Reachme 01');
+    console.log('Reachme 01');
 
   }
 
