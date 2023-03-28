@@ -24,16 +24,23 @@ class GameScene extends Phaser.Scene {
     this.rows = [];
     this.items;
     this.completed = false;
+    this.cellImage;
   }
 
   preload() {
-    this.load.image('cell', new URL('../assets/final/grid-item.jpg', import.meta.url).href);
+    // this.load.image('cell', new URL('../assets/final/grid-item.jpg', import.meta.url).href);
     // this.load.image('artopia', new URL('../assets/final/Artopia_Example00.png', import.meta.url).href);
+
+    // this.load.video('artopia', '../assets/final/Foiling_Example.mp4');
+    this.load.video('artopia', new URL('../assets/final/Foiling_Example.mp4', import.meta.url).href);
   }
 
   create() {
     // create grid of cells
     const items = this.add.group();
+
+    const vid = this.add.video(0, 0, 'artopia').setScale(2).setOrigin(0);
+    vid.play(true);
 
     const rows = [];
     for (let i = 0; i < 40; i++) {
@@ -48,14 +55,20 @@ class GameScene extends Phaser.Scene {
         const y = i * (1080 / 40);
         // 1920 / 50 = 38.2
         // 1080 / 40 = 27
-        const cellImage = this.add.image(x, y, 'cell').setOrigin(0).setInteractive().setDisplaySize(38.4, 27).setName(`(${j}, ${i})`);
+        // const cellImage = this.add.image(x, y, 'cell').setOrigin(0).setInteractive().setDisplaySize(38.4, 27).setName(`(${j}, ${i})`);
+        // this.cellImage = this.add.video(x, y, 'artopia').setOrigin(0).setInteractive().setDisplaySize(38.4, 27).setName(`(${j}, ${i})`);
 
 
-        items.add(cellImage).setOrigin(0);
+
+
+
+        // items.add(cellImage).setOrigin(0);
 
       }
       rows.push(col);
     }
+
+    // this.cellImage.play(true);
 
     this.rows = rows;
     // console.log("Rows: " + this.rows);
@@ -75,18 +88,18 @@ class GameScene extends Phaser.Scene {
     //   this.fillSquares(50, rows, items);
     // }, 10)
 
-    console.log('Reachme 00')
+    console.log('Reachme 01')
 
   }
 
   update() {
-    if (this.input.keyboard.checkDown(this.controls['ONE'], 1000)) {
+    if (this.input.keyboard.checkDown(this.controls['ONE'], 100)) {
       this.fillSquares(tiers[0], this.rows, this.items)
     }
-    if (this.input.keyboard.checkDown(this.controls['TWO'], 1000)) {
+    if (this.input.keyboard.checkDown(this.controls['TWO'], 100)) {
       this.fillSquares(tiers[1], this.rows, this.items)
     }
-    if (this.input.keyboard.checkDown(this.controls['THREE'], 1000)) {
+    if (this.input.keyboard.checkDown(this.controls['THREE'], 100)) {
       this.fillSquares(tiers[2], this.rows, this.items)
     }
     if (this.input.keyboard.checkDown(this.controls['FOUR'], 1000)) {
