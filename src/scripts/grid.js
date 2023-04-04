@@ -28,11 +28,17 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
+<<<<<<< Updated upstream
     // this.load.image('cell', new URL('../assets/final/grid-item.jpg', import.meta.url).href);
     // this.load.image('artopia', new URL('../assets/final/Artopia_Example00.png', import.meta.url).href);
 
     // this.load.video('artopia', '../assets/final/Foiling_Example.mp4');
     this.load.video('artopia', new URL('../assets/final/Foiling_Example.mp4', import.meta.url).href);
+=======
+    // when we have multiple illustrations/videos, add them here
+    this.load.image('cell', new URL('../assets/final/grid-item.png', import.meta.url).href);
+    this.load.video('greyscale', new URL('../assets/final/Foiling_Example_2.mp4', import.meta.url).href);
+>>>>>>> Stashed changes
   }
 
   create() {
@@ -53,6 +59,7 @@ class GameScene extends Phaser.Scene {
         });
         const x = j * (1920 / 50);
         const y = i * (1080 / 40);
+<<<<<<< Updated upstream
         // 1920 / 50 = 38.2
         // 1080 / 40 = 27
         // const cellImage = this.add.image(x, y, 'cell').setOrigin(0).setInteractive().setDisplaySize(38.4, 27).setName(`(${j}, ${i})`);
@@ -64,6 +71,11 @@ class GameScene extends Phaser.Scene {
 
         // items.add(cellImage).setOrigin(0);
 
+=======
+        const ogDimensions = [38.4, 27]
+        const cellImage = this.add.image(x, y, 'cell').setOrigin(0).setInteractive().setDisplaySize(100, 100).setName(`(${j}, ${i})`) //.setTint(0x000000);
+        items.add(cellImage);
+>>>>>>> Stashed changes
       }
       rows.push(col);
     }
